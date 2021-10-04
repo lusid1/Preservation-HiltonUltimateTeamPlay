@@ -35,8 +35,8 @@ Because memory sticks use a simple FAT file system it is possible the installer 
 
 There are known instances of someone owning a complete working set that includes the original disc, memorystick and matching PSP.  These need to be preserved until tools exist to decrypt the GAME.PRX file.
 
-## Running the game without the missing elements:
-A pre-release version of the game is present on the disc, which is invoked if the user picks no at the game data installer, but this build of the game expects to find a valid data.pak archive on the memorystick.  Because the data.pak in the memorystick image is a dummy file, the game exists.  So to get the game running, we need to:
+## Running the game without the missing components:
+A pre-release version of the game is present on the disc, which is invoked if the user picks no at the game data installer, but this build of the game expects to find a valid data.pak archive on the memorystick.  Because the data.pak in the memorystick image is a dummy file, the game exits.  So to get the game running, we need to:
   - Rename GAME.PRX to _GAME.PRX, to invoke the on-disc build of the game
   - Replace the DATA.PAK dummy file with a valid archive.
 
