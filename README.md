@@ -23,13 +23,13 @@ After the game has been run for the first time, and the Game Data Installer proc
 ## Preservation Status
 |Component|Status|Location/Notes|
 |---------|------|--------|
-|UMD Disc       |Archived|archive.org|
-|data_psp folder|Archived|archive.org|
-|SALT Scores folder|Archived|archive.org|
+|UMD Disc       |Archived|https://archive.org/details/HiltonGardenInnUltimateTeamPlayUSA|
+|data_psp folder|Archived|Included in the memorystcik image on archive.org|
+|SALT Scores folder|Archived|Included in the memorystcik image on archive.org|
 |Game Data Installer EBOOT.PBP|MISSING|-|
-|Game Data Install Done EBOOT.PBP|Archived|archive.org|
-|Encypted GAME.PRX|Archived (1 sample)|archive.org|
-|MemoryStick Image|Archived (1 sample)|archive.org|
+|Game Data Install Done EBOOT.PBP|Archived|Included in the memorystcik image on archive.org|
+|Encypted GAME.PRX|Archived (1 sample)|Included in the memorystcik image on archive.org|
+|MemoryStick Image|Archived (1 sample)|https://archive.org/details/HiltonGardenInnUltimateTeamPlayUSA|
 |DATA.PAK|Reconstructed| TBD |
 |Decrypted GAME.PRX|MISSING|No decryption tool exists|
 
