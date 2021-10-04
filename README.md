@@ -8,7 +8,7 @@ Hilton Ultimate Team Play consists of:
   - The Game UMD Disc
   - A memory stick containing:
     - The data_psp folder/contents
-    - The SALT_Scores folder/contents
+    - The SALT Scores folder/contents
     - The game data installer EBOOT.PBP
 
 After the game has been run for the first time, and the Game Data Installer process completes, the installer EBOOT.PBP is replaced with:
@@ -20,7 +20,7 @@ After the game has been run for the first time, and the Game Data Installer proc
 |---------|------|--------|
 |UMD Disc       |Archived|archive.org|
 |data_psp folder|Archived|archive.org|
-|SALT_Scores folder|Archived|archive.org|
+|SALT Scores folder|Archived|archive.org|
 |Game Data Installer EBOOT.PBP|MISSING|-|
 |Game Data Install Done EBOOT.PBP|Archived|archive.org|
 |Encypted GAME.PRX|Archived (1 sample)|archive.org|
