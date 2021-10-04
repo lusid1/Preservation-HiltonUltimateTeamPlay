@@ -16,6 +16,19 @@ After the game has been run for the first time, and the Game Data Installer proc
   - An encrypted GAME.PRX that can only be opened on the PSP that ran the installer.
 
 ## Preservation Status
+|Component|Status|Location/Notes|
+|---------|------|--------|
+|UMD Disc       |Archived|archive.org|
+|data_psp folder|Archived|archive.org|
+|SALT_Scores folder|Archived|archive.org|
+|Game Data Installer EBOOT.PBP|MISSING|-|
+|Game Data Install Done EBOOT.PBP|Archived|archive.org|
+|Encypted GAME.PRX|Archived (1 sample)|archive.org|
+|MemoryStick Image|Archived (1 sample)|archive.org|
+|DATA.PAK|Reconstructed| TBD |
+|Decrypted GAME.PRX|MISSING|No decryption tool exists|
+
+
 The game disc and memory stick data have been preserved, but the game data installer EBOOT.PBP has not.  An example of the already installed EBOOT and encrypted GAME.PRX have been archived, but there is currently no known way to decrypt the file.
 
 Because memory sticks use a simple FAT file system it is possible the installer eboot is hiding in the unallocated blocks of someone's original hilton memory stick.  Anyone who has one of these memory sticks should archive a raw disc image (such as a dd image) so we can look for any remnants of the original eboot.
