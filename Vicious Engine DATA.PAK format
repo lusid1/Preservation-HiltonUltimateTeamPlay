@@ -1,0 +1,33 @@
+Pak files have 3 key components:
+A header, A file table, and a file data area.
+
+The header contains 4 values:
+0x00000 Size of directory table
+0x00004 pointer to file name strings relative to the start of the file table
+0x00008 block number where the file table is stored within the pack file
+0x0000c block size used by this pack file
+
+Typical data.pak files use block size 0x0800, and place the file table at block 1, which places it at 0x0800.
+The file table has two types of records: directory records, and file records.  It always starts with a directory record that represents the root (/). 
+Directory records are 0x18 bytes long and contain 4 fields:
+0x0000 pointer to the directory name, relative to the start of directory strings in the pack file header
+0x0004 block number where data for files in this directory begin.  If the directory has no files, it points to the next block that does contain file data.
+0x0008 number of files in the directory
+0x0010 number of subdirectories
+
+File records have 2 fields, the file name pointer, and the file size in bytes.
+0x0000 pointer to the file name relative to the start of directory strings, and also a flag determining the file name type.  0x0--- indicates the file name is stored as a string. 0x8--- indicates the filename is hex and stored in hex format. Hex formatted file names are read back and formatted with "%08x%08x.%s", stored as two little endian fields and the extention string.
+0x0004 size of the file in bytesno 
+
+The order in which records appear is specific:
+Root dir
+ - Files
+ - Subdirectories
+  [ first subdirectory ]
+     - files
+     - subdirectories
+  [ … ]
+ 
+The directory tree is recursively iterated through in that order.
+
+The file data area is arranged in blocks, with the block size stored in the header.  File data always starts at the beginning of a block, empty space between files is zero filled. If the file ends on a block boundary there will be no gap between files.
