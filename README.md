@@ -3,10 +3,16 @@ Research, documentation and preservation efforts related to this unusual PSP tit
 
 ------
 ## About
-Hilton Ultimate Team Play is a first-person interactive employee training program produced for the Hilton Garden Inn chain in the US between 2008 and 2009.  It was built by VirtualHeroes on the ViciousEngine for the Sony PSP.  According to the VirtualHeroes web site, a PC version was released in 2008, followed by a PSP version in 2009.
+Hilton Ultimate Team Play is a first-person interactive employee training program produced for the Hilton Garden Inn chain in the US between 2008 and 2009.  It was built by VirtualHeroes on the ViciousEngine for the Sony PSP.  A PC demo version was released in 2008, followed by the full version on PSP in 2009. 
 
 The original press release has been archived here:
 https://web.archive.org/web/20080501094530/http://www.virtualheroes.com/newsDetails.asp?nid=31
+
+Hilton Hotels presented at a game developer conference and talked about the background of the game, design goals, and development process. A recording is available here:
+https://www.gdcvault.com/play/1312/(305)-Hilton-ULTIMATE-TEAM-PLAY
+
+The developer also references the game on their website:
+https://www.virtualheroes.com/portfolio/Commercial/Hilton-Ultimate-Team-Play
 
 ## Game Components
 Hilton Ultimate Team Play consists of:
