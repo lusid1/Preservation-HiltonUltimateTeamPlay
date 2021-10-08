@@ -36,7 +36,7 @@ After the game has been run for the first time, and the Game Data Installer proc
 |Game Data Install Done EBOOT.PBP|Archived|Included in the memorystick image on archive.org|
 |Encypted GAME.PRX|Archived (1 sample)|Included in the memorystick image on archive.org|
 |MemoryStick Image|Archived (1 sample)|https://archive.org/details/HiltonGardenInnUltimateTeamPlayUSA|
-|DATA.PAK|Reconstructed| TBD |
+|DATA.PAK|Reconstructed| https://www.dropbox.com/s/hy3gz4sxdjmtaeu/data.pak?dl=1 |
 |Decrypted GAME.PRX|MISSING|No decryption tool exists|
 
 
