@@ -37,7 +37,7 @@ After the game has been run for the first time, and the Game Data Installer proc
 |Encypted GAME.PRX|Archived (1 sample)|Included in the memorystick image on archive.org|
 |MemoryStick Image|Archived (1 sample)|https://archive.org/details/HiltonGardenInnUltimateTeamPlayUSA|
 |DATA.PAK|Reconstructed| https://www.dropbox.com/s/hy3gz4sxdjmtaeu/data.pak?dl=1 |
-|Decrypted GAME.PRX|MISSING|No decryption tool exists|
+|Decrypted GAME.PRX|MISSING|A decryption tool has been created, but it must be run on a working original hilton PSP to decrypt the .PRX.  A functional equivilent has been reconstructed.|
 
 
 The game disc and memory stick data have been preserved, but the game data installer EBOOT.PBP has not.  An example of the already installed EBOOT and encrypted GAME.PRX have been archived, but there is currently no known way to decrypt the file.
