@@ -16,15 +16,36 @@ https://www.virtualheroes.com/portfolio/Commercial/Hilton-Ultimate-Team-Play
 
 ## Game Components
 Hilton Ultimate Team Play consists of:
-  - The Game UMD Disc
+  - The Game UMD Disc containing:
+    - The launcher (eboot.bin)
+    - The (backup) game engine (game.prx)
   - A memory stick containing:
     - The data_psp folder/contents
     - The SALT Scores folder/contents
-    - The game data installer EBOOT.PBP
+    - The patch installer/installed EBOOT.PBP
+    - The patched game engine (game.prx) if installed.
 
-After the game has been run for the first time, and the Game Data Installer process completes, the installer EBOOT.PBP is replaced with:
-  - A game data install completed EBOOT.PBP
-  - An encrypted GAME.PRX that can only be opened on the PSP that ran the installer.
+After the game has been run for the first time, and the Game Data Installer process completes, the patch installer EBOOT.PBP is replaced with:
+  - An 'patch installed' EBOOT.PBP
+  - The patched GAME.PRX file, which can only be read on the system that ran the installer.
+
+## Boot process and known bugs
+  1 The launcher checks the memory stick for the data_psp/data.pak file be make sure the game is present
+  2 The launcher runs the patch installer EBOOT.PBP
+    - BUG 1: If the patch installer or patch installed eboot is not present it will not proceed to launch the backup game from UMD
+  3 The launch run the patched GAME.PRX is present
+    - BUG 2: If the patch was installed by a different PSP it will attempt to load it anyway and hang at a black screen
+  4 If the patched GAME.PRX is missing it launched the backup GAME.PRX from the UMD drive
+  5 The GAME.PRX loads the data.pak file and runs the game
+  6 If files are not in the data.pak file it loads them from the memory stick data_psp directory structure
+    - BUG 3: The backup version of the game tries to load these files from the wrong location (devkit hard drive)
+    
+## Workarounds for known bugs
+  1 The official day0 patch fixes or avoids these bugs, but neither the patch nor the patch installer have been preserved.
+  2 Apply these workarounds to successfully invoke the backup game.prx
+    - Ensure the patch install completed eboot.pbp file is present on the memory stick (avoids bug#1)
+    - Remove the game.prx file from the memory stick (avoids bug#2)
+    - replace the empty data.pak with a valid data.pak (avoids bug#3)
 
 ## Preservation Status
 |Component|Status|Location/Notes|
@@ -32,9 +53,9 @@ After the game has been run for the first time, and the Game Data Installer proc
 |UMD Disc       |Archived|https://archive.org/details/HiltonGardenInnUltimateTeamPlayUSA|
 |data_psp folder|Archived|Included in the memorystick image on archive.org|
 |SALT Scores folder|Archived|Included in the memorystick image on archive.org|
-|Game Data Installer EBOOT.PBP|MISSING|-|
-|Game Data Install Done EBOOT.PBP|Archived|Included in the memorystick image on archive.org|
-|Encypted GAME.PRX|Archived (1 sample)|Included in the memorystick image on archive.org|
+|Patch Installer EBOOT.PBP|MISSING|-|
+|Patch Installed EBOOT.PBP|Archived|Included in the memorystick image on archive.org|
+|Encrypted GAME.PRX|Archived (1 sample)|Included in the memorystick image on archive.org|
 |MemoryStick Image|Archived (1 sample)|https://archive.org/details/HiltonGardenInnUltimateTeamPlayUSA|
 |DATA.PAK|Reconstructed| https://www.dropbox.com/s/hy3gz4sxdjmtaeu/data.pak?dl=1 |
 |Decrypted GAME.PRX|MISSING|A decryption tool has been created, but it must be run on a working original hilton PSP to decrypt the .PRX.  A functional equivilent has been reconstructed.|
