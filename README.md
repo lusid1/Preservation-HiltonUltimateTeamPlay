@@ -16,36 +16,36 @@ https://www.virtualheroes.com/portfolio/Commercial/Hilton-Ultimate-Team-Play
 
 ## Game Components
 Hilton Ultimate Team Play consists of:
-  - The Game UMD Disc containing:
+  - A UMD Disc containing:
     - The launcher (eboot.bin)
     - The (backup) game engine (game.prx)
   - A memory stick containing:
-    - The data_psp folder/contents
+    - The data_psp folder/contents (the game assets)
     - The SALT Scores folder/contents
     - The patch installer/installed EBOOT.PBP
     - The patched game engine (game.prx) if installed.
 
 After the game has been run for the first time, and the Game Data Installer process completes, the patch installer EBOOT.PBP is replaced with:
-  - An 'patch installed' EBOOT.PBP
-  - The patched GAME.PRX file, which can only be read on the system that ran the installer.
+  - The 'patch installed' EBOOT.PBP
+  - The patched GAME.PRX file, which can only be read on the system that ran the patch installer.
 
 ## Boot process and known bugs
-  1 The launcher checks the memory stick for the data_psp/data.pak file be make sure the game is present
-  2 The launcher runs the patch installer EBOOT.PBP
-    - BUG 1: If the patch installer or patch installed eboot is not present it will not proceed to launch the backup game from UMD
-  3 The launch run the patched GAME.PRX is present
-    - BUG 2: If the patch was installed by a different PSP it will attempt to load it anyway and hang at a black screen
-  4 If the patched GAME.PRX is missing it launched the backup GAME.PRX from the UMD drive
-  5 The GAME.PRX loads the data.pak file and runs the game
-  6 If files are not in the data.pak file it loads them from the memory stick data_psp directory structure
-    - BUG 3: The backup version of the game tries to load these files from the wrong location (devkit hard drive)
+  1. The launcher checks the memory stick for the data_psp/data.pak file be make sure the game assets are present
+  2. The launcher runs the patch installer EBOOT.PBP
+     * BUG 1: If the patch installer or patch installed eboot is not present it will not proceed to launch the backup game from UMD
+  3. The launcher runs the patched GAME.PRX if present
+     * BUG 2: If the patch was installed by a different PSP it will attempt to load it anyway and hang at a black screen
+  4. If the patched GAME.PRX is missing it launches the backup GAME.PRX from the UMD drive
+  5. The GAME.PRX loads the data.pak file and runs the game
+  6. If data files/assets are not found in the data.pak file it loads them from the memory stick data_psp directory structure
+     * BUG 3: The backup game engine tries to load these files from the wrong location (devkit hard drive)
     
 ## Workarounds for known bugs
-  1 The official day0 patch fixes or avoids these bugs, but neither the patch nor the patch installer have been preserved.
-  2 Apply these workarounds to successfully invoke the backup game.prx
-    - Ensure the patch install completed eboot.pbp file is present on the memory stick (avoids bug#1)
-    - Remove the game.prx file from the memory stick (avoids bug#2)
-    - replace the empty data.pak with a valid data.pak (avoids bug#3)
+  1. The official day0 patch fixes or avoids these bugs, but neither the patch nor the patch installer have been preserved.
+  2. Apply these workarounds to successfully invoke the backup game.prx
+     * Ensure the patch install completed eboot.pbp file is present on the memory stick (avoids bug#1)
+     * Remove the game.prx file from the memory stick (avoids bug#2)
+     * replace the empty data.pak with a valid data.pak (avoids bug#3)
 
 ## Preservation Status
 |Component|Status|Location/Notes|
@@ -61,15 +61,15 @@ After the game has been run for the first time, and the Game Data Installer proc
 |Decrypted GAME.PRX|MISSING|A decryption tool has been created, but it must be run on a working original hilton PSP to decrypt the .PRX.  A functional equivilent has been reconstructed.|
 
 
-The game disc and memory stick data have been preserved, but the game data installer EBOOT.PBP has not.  An example of the already installed EBOOT and encrypted GAME.PRX have been archived, but the file can only be decrypted by the original PSP on which it was installed.  A decryption tool has been created. It will need to be run by someone who has a working original hilton PSP to recover the original GAME.PRX file.
+The game disc and memory stick data have been preserved, but the patch installer EBOOT.PBP has not.  An example of the already installed EBOOT and encrypted GAME.PRX have been archived, but the file can only be decrypted by the original PSP on which it was installed.  A decryption tool has been created. It will need to be run by someone who has a working original hilton PSP to recover the original GAME.PRX file.
 
 Because memory sticks use a simple FAT file system it is possible the installer eboot is hiding in the unallocated blocks of someone's original hilton memory stick.  Anyone who has one of these memory sticks should archive a raw disc image (such as a dd image) so we can look for any remnants of the original eboot.
 
-There are known instances of someone owning a complete working set that includes the original disc, memorystick and matching PSP.  One of these will need to be used to decrypt the GAME.PRX file.
+There are known instances of someone owning a complete working set that includes the original disc, memorystick and matching PSP.  One of these units will need to be used to preserve the patched GAME.PRX file.
 
 ## Running the game without the missing components:
 A pre-release version of the game is present on the disc, which is invoked if the user picks no at the game data installer, but this build of the game expects to find a valid data.pak archive on the memorystick.  Because the data.pak in the memorystick image is a dummy file, the game exits.  So to get the game running, we need to:
   - Rename GAME.PRX to _GAME.PRX, to invoke the on-disc build of the game
   - Replace the DATA.PAK dummy file with a valid archive.
 
-This allows the umodified game iso or the original UMD disc to run on a normal PSP, but does not get it working on emulators like PPSSPP because the game data installer related functions are not implemented.  To get around this, we need to patch the loader portion to bypass these checks, and just run the fallback version of the game.  Since the ISO is being modified, we can include the game data files on the ISO an remove the dependency on have a pre-configured memory stick.
+This allows the umodified game iso or the original UMD disc to run on a normal PSP, but does not get it working on emulators like PPSSPP because the patch installer related functions are not implemented.  To get around this, we need to patch the loader portion to bypass these checks, and just run the fallback version of the game.  Since the ISO is being modified, we can include the game data files on the ISO an remove the dependency on having a pre-configured memory stick.
