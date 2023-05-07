@@ -61,7 +61,7 @@ After the game has been run for the first time, and the Game Data Installer proc
 |Decrypted GAME.PRX|MISSING|A decryption tool has been created, but it must be run on a working original hilton PSP to decrypt the .PRX.  A functional equivilent has been reconstructed that patches bug #3 but there is currently no way to install it.|
 
 
-The game disc and memory stick data have been preserved, but the patch installer EBOOT.PBP has not.  An example of the already installed EBOOT and encrypted GAME.PRX have been archived, but the file can only be read by the original PSP on which it was installed.  A decryption tool has been created. It will need to be run by someone who has a working original hilton PSP to recover the original GAME.PRX file.
+The game disc and memory stick data have been preserved, but the patch installer EBOOT.PBP has not.  An example of the already installed EBOOT and encrypted GAME.PRX have been archived, but the file can only be read by the original PSP on which it was installed.  A decryption tool has been created. It will need to be run by someone who has a working original hilton PSP to recover the patched GAME.PRX file.
 
 Because memory sticks use a simple FAT file system it is possible the installer eboot is hiding in the unallocated blocks of someone's original hilton memory stick.  Anyone who has one of these memory sticks should archive a raw disc image (such as a dd image) so we can look for any remnants of the original eboot.
 
