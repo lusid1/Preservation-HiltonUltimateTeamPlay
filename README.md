@@ -72,4 +72,4 @@ A pre-release version of the game is present on the disc, which is invoked if th
   - Rename GAME.PRX to _GAME.PRX, to invoke the on-disc build of the game
   - Replace the DATA.PAK dummy file with a valid archive.
 
-This allows the umodified game iso or the original UMD disc to run on a normal PSP, but does not get it working on emulators like PPSSPP because the patch installer related functions are not implemented.  To get around this, we need to patch the loader portion to bypass these checks, and just run the fallback version of the game.  Since the ISO is being modified, we can include the game data files on the ISO an remove the dependency on having a pre-configured memory stick.
+This allows the umodified game iso or the original UMD disc to run on a normal PSP, but does not work on emulators like PPSSPP because the patch installer related functions are not implemented.  
