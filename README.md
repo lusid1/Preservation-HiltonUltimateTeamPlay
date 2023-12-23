@@ -12,7 +12,7 @@ Hilton Hotels presented at a game developer conference and talked about the back
 https://www.gdcvault.com/play/1312/(305)-Hilton-ULTIMATE-TEAM-PLAY
 
 The developer also references the game on their website:
-https://www.virtualheroes.com/portfolio/Commercial/Hilton-Ultimate-Team-Play
+https://virtualheroes.com/portfolio_/commercial-2/hilton-ultimate-team-play/
 
 ## Game Components
 Hilton Ultimate Team Play consists of:
@@ -30,7 +30,7 @@ After the game has been run for the first time, and the Game Data Installer proc
   - The patched GAME.PRX file, which can only be read on the system that ran the patch installer.
 
 ## Boot process and known bugs
-  1. The launcher checks the memory stick for the data_psp/data.pak file be make sure the game assets are present
+  1. The launcher checks the memory stick for the data_psp/data.pak file to make sure the game assets are present
   2. The launcher runs the patch installer EBOOT.PBP
      * BUG 1: If the patch installer or patch installed eboot is not present it will not proceed to launch the backup game from UMD
   3. The launcher runs the patched GAME.PRX if present
