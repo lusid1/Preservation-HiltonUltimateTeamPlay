@@ -37,8 +37,8 @@ After the game has been run for the first time, and the Game Data Installer proc
      * BUG 2: If the patch was installed by a different PSP it will attempt to load it anyway and hang at a black screen
   4. If the patched GAME.PRX is missing it launches the backup GAME.PRX from the UMD drive
   5. The GAME.PRX loads the data.pak file and runs the game
-  6. If data files/assets are not found in the data.pak file it loads them from the memory stick data_psp directory structure
-     * BUG 3: The backup game engine tries to load these files from the wrong location (devkit hard drive)
+  6. If the data.pak file is not found, it loads the game from the data_psp directory structure on the memory stick
+     * BUG 3: The provided data.pak file is a dummy file, which causes the game engine to exit the game.
     
 ## Workarounds for known bugs
   1. The official day0 patch fixes or avoids these bugs, but neither the patch nor the patch installer have been preserved.
