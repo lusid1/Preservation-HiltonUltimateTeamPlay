@@ -15,7 +15,7 @@ The developer also references the game on their website:
 https://virtualheroes.com/portfolio_/commercial-2/hilton-ultimate-team-play/
 
 ## Why the UDM disc was labeled "The Hilton Family"
-The UMD Disc was labeled "The Hilton Family" because they planned to launch a version of the game for each Hilton property.  Each version would have used the same launcher UMD, and the game content and user runtime engine could be updated for each property without requiring a new UMD to be authored.  This would have saved the developers from having to submit each future variant for review and UMD pressing, and is the reason for the unique structure of the content for this title. Hilton Gardens Inn Ultimate Team Play was the first property in the Hilton Family to be produced.  The project was cancelled due to the 2009 ecenomic recession and training games for the other hilton hotem chains were never produced.
+The UMD Disc was labeled "The Hilton Family" because they planned to launch a version of the game for each Hilton property.  Each version would have used the same launcher UMD, and the game content and user runtime engine could be updated for each property without requiring a new UMD to be authored.  This would have saved the developers from having to submit each future variant for review and UMD pressing, and is the reason for the unique structure of the content for this title. Hilton Gardens Inn Ultimate Team Play was the first property in the Hilton Family to be produced.  The project was cancelled due to the 2009 ecenomic recession and training games for the other hilton hotel chains were never produced.
 
 ## Game Components
 Hilton Ultimate Team Play consists of:
