@@ -3,7 +3,7 @@ Research, documentation and preservation efforts related to this unusual PSP tit
 
 ------
 ## About
-Hilton Ultimate Team Play is a first-person interactive employee training program produced for the Hilton Garden Inn chain in the US between 2008 and 2009.  It was built by VirtualHeroes on the ViciousEngine for the Sony PSP.  A PC demo version was released in 2008, followed by the full version on PSP in 2009. 
+Hilton Ultimate Team Play is a first-person interactive employee training program produced for the Hilton Garden Inn chain in the US between 2008 and 2009.  It was built by VirtualHeroes on the ViciousEngine for the Sony PSP.  A PC demo version was created in 2008, followed by the full version on PSP in 2009. 
 
 The original press release has been archived here:
 https://web.archive.org/web/20080501094530/http://www.virtualheroes.com/newsDetails.asp?nid=31
@@ -14,42 +14,51 @@ https://www.gdcvault.com/play/1312/(305)-Hilton-ULTIMATE-TEAM-PLAY
 The developer also references the game on their website:
 https://virtualheroes.com/portfolio_/commercial-2/hilton-ultimate-team-play/
 
-## Why the UDM disc was labeled "The Hilton Family"
+## Why the UMD disc was labeled "The Hilton Family"
 The UMD Disc was labeled "The Hilton Family" because they planned to launch a version of the game for each Hilton property.  Each version would have used the same launcher UMD, and the game content and user runtime engine could be updated for each property without requiring a new UMD to be authored.  This would have saved the developers from having to submit each future variant for review and UMD pressing, and is the reason for the unique structure of the content for this title. Hilton Gardens Inn Ultimate Team Play was the first property in the Hilton Family to be produced.  The project was cancelled due to the 2009 ecenomic recession and training games for the other hilton hotel chains were never produced.
 
 ## Game Components
 Hilton Ultimate Team Play consists of:
   - A UMD Disc containing:
     - The launcher (eboot.bin)
-    - The (backup) game engine (game.prx)
+    - The developer build of the game engine runtime (game.prx)
   - A memory stick containing:
     - The data_psp folder/contents (the game assets)
     - The SALT Scores folder/contents
     - The patch installer/installed EBOOT.PBP
-    - The patched game engine (game.prx) if installed.
+    - The user build of the game engine runtime (game.prx) if installed.
 
 After the game has been run for the first time, and the Game Data Installer process completes, the patch installer EBOOT.PBP is replaced with:
   - The 'patch installed' EBOOT.PBP
-  - The patched GAME.PRX file, which can only be read on the system that ran the patch installer.
+  - The patched GAME.PRX user runtime, which can only be read on the system that ran the patch installer.
 
-## Boot process and known bugs
-  1. The launcher checks the memory stick for the data_psp/data.pak file to make sure the game assets are present
-  2. The launcher runs the patch installer EBOOT.PBP
-     * BUG 1: If the patch installer or patch installed eboot is not present it will not proceed to launch the backup game from UMD
-  3. The launcher runs the patched GAME.PRX if present
-     * BUG 2: GAME.PRX is not validated.  If the patch was installed by a different PSP it will attempt to load it anyway and hang or crash.
-  4. If the patched GAME.PRX is missing it launches the backup GAME.PRX from the UMD drive
-  5. The GAME.PRX loads the game data and runs the game
-     - The patched GAME.PRX only loads game data in extracted, un-packed format.  
-     - The backup GAME.PRX only loads game data from a data.pak archive
-       * BUG 3: The provided data.pak file is a dummy file, which causes the game engine to exit the game. 
+## Two different runtime game engines, two different memory stick images
+There are two different builds of the game engine, each requiring a different file structure on the memory stick.
+  - The developer runtime:
+    - game data must be in a data.pak file
+  - The user runtime:
+    - game data must not be in a data.pak file
 
-## Workarounds
-  1. The official day0 patch fixes or avoids these bugs, but the patch installer has not been preserved.
-  2. Apply these workarounds to successfully invoke the backup game.prx
-     * Ensure the patch install completed eboot.pbp file is present on the memory stick (avoids bug#1)
-     * Remove the game.prx file from the memory stick (avoids bug#2)
-     * replace the empty data.pak with a valid data.pak (avoids bug#3)
+## Boot process
+  1. The launcher checks the memory stick for the data_psp/data.pak file to make sure the game data is present
+  2. The launcher invokes the game data installer for ms0:/PSP/GAME/UCUS94341/EBOOT.PBP
+     * Note: If the eboot.pbp is not present it will not proceed to launch the backup game engine from the UMD disc.
+  3. (One time only) The game data installer installs GAME.PRX and locks it to that console's unique FuseID. 
+  4. The launcher runs the patched ms0:/PSP/GAME/UCUS94341/GAME.PRX if present
+     * Note: GAME.PRX is not validated.  If the patch was installed by a different PSP it will attempt to load it anyway and hang or crash.
+  5. If the user runtime GAME.PRX is missing it launches the developer runtime GAME.PRX from the UMD disc.
+  6. The selected runtime GAME.PRX loads the game data and runs the game
+     * Notes:
+       - The user runtime GAME.PRX only loads game data in extracted, un-packed format.  
+       - The developer runtime GAME.PRX only loads game data from a data.pak archive
+       - The data.pak file in the user memory stick image is a dummy file, which causes the game to exit the game. 
+
+## Options for running the game
+  1. Install the user runtime game engine.  Note the official patch installer has not been recovered.
+  2. Convert the available user memory stick image to a developer memory stick image:
+     * Delete ms0:/PSP/GAME/UCUS94341/GAME.PRX
+     * Replace the empty data.pak with a valid data.pak (see below)
+  3. Use a cheat engine to patch the game (required for emulators like PPSSPP)
 
 ## Preservation Status
 |Component|Status|Location/Notes|
@@ -61,19 +70,14 @@ After the game has been run for the first time, and the Game Data Installer proc
 |Patch Installed EBOOT.PBP|Archived|Included in the memorystick image on archive.org|
 |Encrypted GAME.PRX|Archived (1 sample)|Included in the memorystick image on archive.org|
 |Decrypted GAME.PRX|Archived|The decrypted patch has been recovered and is preserved in a private archive. |
-|MemoryStick Image|Archived (1 sample)|https://archive.org/details/HiltonGardenInnUltimateTeamPlayUSA|
+|User MemoryStick Image|Archived (1 sample)|https://archive.org/details/HiltonGardenInnUltimateTeamPlayUSA|
 |DATA.PAK|Reconstructed| https://www.dropbox.com/s/hy3gz4sxdjmtaeu/data.pak?dl=1 |
 
+## Current Status
 The game disc and memory stick data have been preserved, and the plaintext patch has been recovered, but the patch installer EBOOT.PBP is still lost.  
 
 Alternative patch installation methods are being explored.  These include:
   - Reconstructing the patch installer eboot.  (Currently not possible due to missing KIRK keys)
   - Patching the system firmware to allow custom installer eboots.
   - Creating a standalone patch installer  
-
-## Running the game without the patch:
-A pre-release version of the game is present on the disc, which is invoked if the user picks no at the game data installer, but this build of the game expects to find a valid data.pak archive on the memorystick.  Because the data.pak in the memorystick image is a dummy file, the game exits.  So to get the game running, we need to:
-  - Remove the GAME.PRX file from the memory stick, to invoke the on-disc build of the game
-  - Replace the DATA.PAK dummy file with a valid archive.
-
-This allows the umodified game iso or the original UMD disc to run on a normal PSP, but does not work on emulators like PPSSPP because the patch installer related functions are not implemented.  
+ 
